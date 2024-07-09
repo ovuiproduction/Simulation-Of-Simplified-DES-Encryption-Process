@@ -7,50 +7,49 @@ import MatrixInput from "./MatrixInput";
 export default function SimpleDES() {
   const [plaintext,setPlaintext] = useState('');
   const [key,setKey] = useState('');
-  // const [p10,setP10] = useState(new Array(10).fill(''));
-  let p10 = [];
-  p10.push(3);
-  p10.push(5);
-  p10.push(2);
-  p10.push(7);
-  p10.push(4);
-  p10.push(10);
-  p10.push(1);
-  p10.push(9);
-  p10.push(8);
-  p10.push(6);
+  const [p10,setP10] = useState(new Array(10).fill(''));
+  // let p10 = [];
+  // p10.push(3);
+  // p10.push(5);
+  // p10.push(2);
+  // p10.push(7);
+  // p10.push(4);
+  // p10.push(10);
+  // p10.push(1);
+  // p10.push(9);
+  // p10.push(8);
+  // p10.push(6);
 
-  let p8 = [];
-  p8.push(6);
-  p8.push(3);
-  p8.push(7);
-  p8.push(4);
-  p8.push(8);
-  p8.push(5);
-  p8.push(10);
-  p8.push(9);
- 
-  // const [p8,setP8] = useState(new Array(8).fill(''));
+  // let p8 = [];
+  // p8.push(6);
+  // p8.push(3);
+  // p8.push(7);
+  // p8.push(4);
+  // p8.push(8);
+  // p8.push(5);
+  // p8.push(10);
+  // p8.push(9);
+  const [p8,setP8] = useState(new Array(8).fill(''));
   const [p4,setP4] = useState(new Array(4).fill(''));
   const [ip,setIp] = useState(new Array(8).fill(''));
   const [ipInverse,setIpInverse] = useState(new Array(8).fill(''));
   const [ep,setEp] = useState(new Array(8).fill(''));
-  // const [matrixS0, setMatrixS0] = useState(Array.from({ length: 4 }, () => Array(4).fill('')));
-  // const [matrixS1, setMatrixS1] = useState(Array.from({ length: 4 }, () => Array(4).fill('')));
+  const [matrixS0, setMatrixS0] = useState(Array.from({ length: 4 }, () => Array(4).fill('')));
+  const [matrixS1, setMatrixS1] = useState(Array.from({ length: 4 }, () => Array(4).fill('')));
+  const [cipher,setCipher] = useState('');
+  // const matrixS0 = [
+  //   [1,0,3,2],
+  //   [3,,2,1,0],
+  //   [0,2,1,3],
+  //   [3,1,3,2]
+  // ];
 
-  const matrixS0 = [
-    [1,0,3,2],
-    [3,,2,1,0],
-    [0,2,1,3],
-    [3,1,3,2]
-  ];
-
-  const matrixS1 = [
-    [0,1,2,3],
-    [2,0,1,3],
-    [3,0,1,0],
-    [2,1,0,3]
-  ];
+  // const matrixS1 = [
+  //   [0,1,2,3],
+  //   [2,0,1,3],
+  //   [3,0,1,0],
+  //   [2,1,0,3]
+  // ];
 
   const handleIpChange = (value) => {
     const updatedIp = value.split('');
@@ -76,7 +75,7 @@ export default function SimpleDES() {
   const [key2,setKey2] = useState([1,1,1,0,1,0,1,0]);
 
 
-  const keyToP10 = () => {
+  const updateKey = () => {
     let updatedKeyP10 = p10.map(index => key.charAt(index - 1));
     updatedKeyP10 = lsc1(updatedKeyP10);
     let key_1 = convertIntoP8(updatedKeyP10);
@@ -84,6 +83,7 @@ export default function SimpleDES() {
     let key_2 = convertIntoP8(updatedKeyP10);
     setKey1(key_1);
     setKey2(key_2);
+    updatePlainText();
   };
 
   
@@ -244,6 +244,8 @@ export default function SimpleDES() {
 
     let cipherText = determineIpInverse(final_combine,ipInverse);
 
+    setCipher(cipherText);
+
     console.log("cipherText",cipherText);
    }
 
@@ -329,18 +331,18 @@ export default function SimpleDES() {
             renderInput={(props) => <input {...props} />}
             inputStyle={'input-box'}
           />
-          {/* <h2>P10</h2>
+          <h2>P10</h2>
          <TwoDigitInput
             value={p10} 
             onChange={setP10}
             numInputs={10}
-          /> */}
-          {/* <h2>P8</h2>
+          />
+          <h2>P8</h2>
          <TwoDigitInput
             value={p8} 
             onChange={setP8}
             numInputs={8}
-          /> */}
+          />
           <h2>P4</h2>
           <OtpInput
             value={p4.join('')}
@@ -382,22 +384,22 @@ export default function SimpleDES() {
           <div className="matrix-block">
           <h2>S0</h2>
           <div>
-          {/* <MatrixInput matrix={matrixS0} setMatrix={setMatrixS0} /> */}
+          <MatrixInput matrix={matrixS0} setMatrix={setMatrixS0} />
           </div>
           </div>
           <div  className="matrix-block">
           <h2>S1</h2>
           <div>
-          {/* <MatrixInput matrix={matrixS1} setMatrix={setMatrixS1} /> */}
+          <MatrixInput matrix={matrixS1} setMatrix={setMatrixS1} />
           </div>
           </div>
         </div>
       </div>
       <div className="submit-btn-block">
-      <button onClick={updatePlainText} className="submit-btn">Submit</button>
+      <button onClick={updateKey} className="submit-btn">Submit</button>
       </div>
       <div className="solution-block">
-        <p>{key}</p>
+        {cipher && <h1>{cipher}</h1>}
       </div>
     </>
   );
