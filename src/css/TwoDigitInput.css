@@ -1,0 +1,12 @@
+.two-digit-inputs {
+  display: flex;
+  gap: 14px;
+  padding:0px;
+  height:40px;
+  margin-top:1rem;
+}
+
+.input-box-2digit{
+  width:20px;
+  text-align: center;
+}
