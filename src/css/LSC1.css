@@ -1,0 +1,12 @@
+.lsc1-main-block{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-column: auto;
+    grid-row: auto;
+    
+}
+.lcs1-main-block{
+    padding-top:0.5rem;
+    padding-left:1rem;
+}

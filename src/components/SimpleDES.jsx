@@ -370,33 +370,19 @@ export default function SimpleDES() {
           Submit
         </button>
       </div>
-      {indicator &&
+      {/* {indicator && */}
       <div className="solution-block">
-        <Typewriter
-          options={{
-            strings: ["Solution"],
-            autoStart: true,
-            loop: true,
-          }}
-        />
-        <h2>Plaintext : <span>{plaintext}</span></h2>
-        <h2>Step 1 - key Generation</h2>
-        <p>Key : <span>{key}</span></p>
-        <p>P10 Of Key : <span>{keyP10}</span></p>
-        <p>Lift Circuler Shift : {keyP10LCS1}</p>
-        <h3>Key 1 : <span>{key1}</span></h3>
-        <p>Lift Circuler Shift 2 : {keyP10LCS2}</p>
-        <h3>Key 2 : <span>{key2}</span></h3>
-
-        <h2>Step 2 - PlainText Manupulation</h2>
-        <p>Initial permutation : <span>{ptIp}</span></p>
-        <p>Nibble 1 : <span>{ptIpN1}</span></p>
-        <p>Nibble 2 : <span>{ptIpN2}</span></p>
-        <p>Expansion of Initial Permutation : <span>{n2Ep}</span></p>
-        
-        <h2>Cipher Text : {cipher}</h2>
+        <div className="solution-sub-block">
+        <h1>Key Generation <button>start</button></h1>
+        <h3>10 Bit Random Key : <span>0010010111</span></h3>
+        <h2>Applying P10 On 10 Bit Random key <button>Apply P10</button></h2>
+        <h3>P10 : <span>3 5 2 6 4 8 9 3 10 8</span></h3>
+        <h3>key : <span>0 0 1 0 0 1 0 1 1 1</span></h3>
+        <h3>newKey[i] = key[p10[i]]</h3>
+        <h3>newKey : <span>0 1 1 1 0 1 1 1</span></h3>
+        </div>
       </div>
-      }
+      {/* } */}
     </>
   );
 }

@@ -91,7 +91,6 @@ h1,p{
     cursor: pointer;
     color: white;
     border:none;
-    
 }
 
 .solution-block{
@@ -101,4 +100,63 @@ h1,p{
     margin-bottom:3vh;
     padding:1rem;
     font-family: sans-serif;
+}
+
+.solution-sub-block{
+    width:100%;
+    height: auto;
+    padding-bottom:2rem;
+    margin-top:2vh;
+    box-shadow: 0px 0px 2px rgba(12, 5, 63,0.2);
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.typewriter-text{
+    font-size:20px;
+}
+.result-number-block{
+    padding:1rem;
+}
+.solution-sub-block h1{
+    font-size:25px;
+    font-weight: 400;
+    padding:1rem;
+    background-color: aliceblue;
+}
+.solution-sub-block h2{
+    font-size:21px;
+    padding:1rem;
+    font-weight: 400;
+    background-color:rgb(243, 243, 244);
+    color: gray;
+}
+
+.solution-sub-block h3{
+    font-size:18px;
+    font-weight: 400;
+}
+
+.solution-sub-block h3 span{
+    font-size:20px;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+.p10-key{
+    padding-right:20px;
+}
+.generation-line{
+    font-size:17px;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding-bottom:15px;
+    font-weight:400;
+    color: rgb(73, 73, 73);
+}
+.bit-block{
+    margin-left:1rem;
+}
+.bit-element{
+    padding:0.5rem 1rem;
+    background-color:rgba(217, 217, 219, 0.1);
+    border:1px solid rgb(190, 188, 188);
 }
