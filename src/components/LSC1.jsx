@@ -71,7 +71,7 @@ export default function LSC1({ p10ConvertedKey,onResultUpdate }) {
 
     return (
         <>
-            <div className="lcs1-main-block">
+            <div className="lcs1-main-container">
                 <h3>P10 Converted Key: 
                     <span className="bit-block">
                         {p10ConvertedKey.map((element, j) => (

@@ -4,9 +4,9 @@
     grid-template-rows: auto;
     grid-column: auto;
     grid-row: auto;
-    
 }
-.lcs1-main-block{
-    padding-top:0.5rem;
+
+.lcs1-main-container{
+    padding-top:1rem;
     padding-left:1rem;
 }

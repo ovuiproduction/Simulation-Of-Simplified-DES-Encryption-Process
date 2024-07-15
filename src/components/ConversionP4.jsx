@@ -1,23 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React,{useEffect,useState} from "react";
 
-export default function ConversionP10({randomKey,p10,onResultUpdate}){
-    
-    const [newKey, setNewKey] = useState([]);
+export default function ConversionP4({inputText,p4,onResultUpdate}){
+
+    const [result, setResult] = useState([]);
     const [detailedText, setDetailedText] = useState([]);
-    // const [p10ConvertedKey,setP10ConvertedKey] = useState([]);
-
+    
     useEffect(() => {
-        p10.forEach((index, i) => {
+        p4.forEach((index, i) => {
             setTimeout(() => {
-              setNewKey((prev) => {
+              setResult((prev) => {
                 const newAnimatedKey = [...prev];
-                newAnimatedKey[i] = randomKey[index - 1];
+                newAnimatedKey[i] = inputText[index - 1];
                 return newAnimatedKey;
               });
               setDetailedText((prev) => {
                 const newText = [
                   ...prev,
-                  `newKey[${i}] = key[P10[${i}]-1] = key[${index - 1}] = ${randomKey[index - 1]}`
+                  `updatedPT[${i}] = PT[IP[${i}]-1] = PT[${index - 1}] = ${inputText[index - 1]}`
                 ];
                 return newText;
               });
@@ -27,20 +26,28 @@ export default function ConversionP10({randomKey,p10,onResultUpdate}){
 
 
     useEffect(()=>{
-        if(newKey.length == 10){
+        if(result.length == 4){
             if(onResultUpdate){
-              onResultUpdate(newKey);
+              onResultUpdate(result);
             }
         }
-    },[newKey]);
+    },[result]);
 
     return(
         <>
    <div className="result-number-block">
                 <h3>
+                  Sbox Result : 
+                  <span className="bit-block">
+                    {inputText.map((element,j)=>(
+                        <span key={j} className="bit-element">{element}</span>
+                    ))}
+                  </span>
+                </h3>
+                <h3>
                   P10: 
                   <span className="bit-block">
-                    {p10.map((element,j)=>(
+                    {p4.map((element,j)=>(
                         <span key={j} className="bit-element">{element}</span>
                     ))}
                   </span>
@@ -49,9 +56,9 @@ export default function ConversionP10({randomKey,p10,onResultUpdate}){
                   <p className="generation-line" key={i}>{text}</p>
                 ))}
                 <h3>
-                  New Key:{" "}
+                  Updated PT : {" "}
                   <span className="bit-block">
-                  {newKey.map((char, i) => (
+                  {result.map((char, i) => (
                     <span key={i} className="bit-element">
                       {char}
                     </span>
