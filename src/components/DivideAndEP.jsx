@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from "react";
+import React, { useEffect, useState } from "react";
 
 export default function DivideAndEP({ inputText, ep, onResultUpdate }) {
   const [epRightNibble, setEPRightNibble] = useState([]);
@@ -31,16 +31,16 @@ export default function DivideAndEP({ inputText, ep, onResultUpdate }) {
   useEffect(() => {
     if (epRightNibble.length == 8) {
       if (onResultUpdate) {
-        onResultUpdate({ leftNibble,rightNibble,epRightNibble });
+        onResultUpdate({ leftNibble, rightNibble, epRightNibble });
       }
     }
   }, [epRightNibble]);
 
   return (
     <>
-      <div className="lcs1-main-block">
+      <div className="lcs1-main-container">
         <h3>
-          IP Result :
+          Initial Permuted Text :
           <span className="bit-block">
             {inputText.map((element, j) => (
               <span key={j} className="bit-element">
@@ -52,7 +52,7 @@ export default function DivideAndEP({ inputText, ep, onResultUpdate }) {
         <div className="lsc1-main-block">
           <div className="lsc1-sub-block">
             <h3>
-              Left Nibble:
+              Left Nibble :
               <span className="bit-block">
                 {leftNibble.map((element, j) => (
                   <span key={`left-${j}`} className="bit-element">
@@ -64,7 +64,7 @@ export default function DivideAndEP({ inputText, ep, onResultUpdate }) {
           </div>
           <div className="lsc1-sub-block">
             <h3>
-              Right Nibble:
+              Right Nibble :
               <span className="bit-block">
                 {rightNibble.map((element, j) => (
                   <span key={`right-${j}`} className="bit-element">

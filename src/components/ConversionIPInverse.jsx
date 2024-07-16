@@ -48,7 +48,7 @@ export default function ConversionIPInverse({inputText,ipInverse,onResultUpdate}
                   <p className="generation-line" key={i}>{text}</p>
                 ))}
                 <h3>
-                  Updated PT : {" "}
+                  Final Text : {" "}
                   <span className="bit-block">
                   {result.map((char, i) => (
                     <span key={i} className="bit-element">

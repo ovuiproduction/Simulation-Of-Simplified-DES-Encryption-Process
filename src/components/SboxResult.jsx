@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "../css/SboxResult.css"
+import "../css/SimpleDES.css";
+
 export default function SboxResult({ inputText, s0, s1, onResultUpdate }) {
     const [newLeftNibble, setNewLeftNibble] = useState([]);
     const [newRightNibble, setNewRightNibble] = useState([]);
@@ -81,7 +82,7 @@ export default function SboxResult({ inputText, s0, s1, onResultUpdate }) {
                 onResultUpdate(combinedResult);
             }
         }
-    }, [newLeftNibble, newRightNibble, onResultUpdate]);
+    }, [newLeftNibble,newRightNibble]);
 
     return (
         <div className="sbox-main-block">

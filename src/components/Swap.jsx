@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../css/Combine.css"
+import "../css/SimpleDES.css";
 
 export default function Swap({ inputText,onResultUpdate }) {
 
@@ -9,10 +9,10 @@ export default function Swap({ inputText,onResultUpdate }) {
 
   useEffect(() => {
     setResult([...rightNibble,...leftNibble]);
-  });
+  },[]);
 
   useEffect(()=>{
-    if(result.length == 4){
+    if(result.length == 8){
         if(onResultUpdate){
           onResultUpdate(result);
         }

@@ -115,7 +115,7 @@ h1,p{
     font-size:20px;
 }
 .result-number-block{
-    padding:1rem;
+    padding:0rem 1rem 1rem 1rem;
 }
 .solution-sub-block h1{
     font-size:25px;
@@ -134,7 +134,7 @@ h1,p{
 .solution-sub-block h3{
     font-size:18px;
     font-weight: 400;
-    margin-top:1rem;
+    margin-top:2rem;
 }
 
 .solution-sub-block h3 span{
@@ -148,7 +148,7 @@ h1,p{
 }
 .array-generation-block{
     padding-top:1rem;
-    padding-bottom:1rem;
+    padding-bottom:0.5rem;
 }
 .generation-line{
     font-size:17px;
@@ -166,3 +166,53 @@ h1,p{
     border:1px solid rgb(190, 188, 188);
 }
 
+
+.bit-number-display{
+    display: grid;
+    grid-template-columns:1fr 5fr;
+    grid-column: auto;
+    
+}
+
+
+.lsc1-main-block{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-column: auto;
+    grid-row: auto;
+}
+
+.lcs1-main-container{
+    padding-top:1rem;
+    padding-left:1rem;
+}
+
+.two-digit-inputs {
+    display: flex;
+    gap: 14px;
+    padding:0px;
+    height:40px;
+    margin-top:1rem;
+}
+  
+.input-box-2digit{
+    width:20px;
+    text-align: center;
+}
+  
+.sbox-main-block{
+    padding: 1rem;
+}
+
+.matrix-result-bit-block{
+    padding-top:1rem;
+    padding-bottom:1rem;
+}
+
+.combine-block{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    grid-column: auto;
+    grid-row: auto;
+}

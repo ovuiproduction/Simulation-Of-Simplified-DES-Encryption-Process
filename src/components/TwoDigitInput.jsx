@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import '../css/TwoDigitInput.css';
+import '../css/SimpleDES.css';
 
 const TwoDigitInput = ({ value, onChange, numInputs }) => {
   const inputRefs = useRef([]);

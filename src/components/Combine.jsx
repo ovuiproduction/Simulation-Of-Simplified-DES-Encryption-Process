@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../css/Combine.css";
+import "../css/SimpleDES.css";
 
 export default function Combine({ inputText1, inputText2, onResultUpdate }) {
 
@@ -7,7 +7,7 @@ export default function Combine({ inputText1, inputText2, onResultUpdate }) {
 
   useEffect(() => {
     setResult([...inputText1, ...inputText2]);
-  });
+  },[]);
 
   useEffect(()=>{
     if(result.length == 8){
@@ -22,7 +22,7 @@ export default function Combine({ inputText1, inputText2, onResultUpdate }) {
       <div className="result-number-block">
         <div className="combine-block">
         <h3>
-          fk1_P4_xor :
+          P4 ⊕ Initial Nibble Left :
           <span className="bit-block">
             {inputText1.map((element, j) => (
               <span key={j} className="bit-element">
@@ -32,7 +32,7 @@ export default function Combine({ inputText1, inputText2, onResultUpdate }) {
           </span>
         </h3>
         <h3>
-          fk1_initial_N2 :
+          Initial Nibble Right :
           <span className="bit-block">
             {inputText2.map((element, j) => (
               <span key={j} className="bit-element">
@@ -43,7 +43,7 @@ export default function Combine({ inputText1, inputText2, onResultUpdate }) {
         </h3>
         </div>
         <h3>
-        combine result : {" "}
+        New (8 bit) Word  : {" "}
           <span className="bit-block">
             {result.map((char, i) => (
               <span key={i} className="bit-element">

@@ -38,7 +38,7 @@ export default function ConversionP10({randomKey,p10,onResultUpdate}){
         <>
    <div className="result-number-block">
                 <h3>
-                  P10: 
+                  P10 : 
                   <span className="bit-block">
                     {p10.map((element,j)=>(
                         <span key={j} className="bit-element">{element}</span>
@@ -49,7 +49,7 @@ export default function ConversionP10({randomKey,p10,onResultUpdate}){
                   <p className="generation-line" key={i}>{text}</p>
                 ))}
                 <h3>
-                  New Key:{" "}
+                Updated Text : {" "}
                   <span className="bit-block">
                   {newKey.map((char, i) => (
                     <span key={i} className="bit-element">

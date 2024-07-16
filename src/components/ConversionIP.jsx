@@ -37,7 +37,7 @@ export default function ConversionIP({inputText,ip,onResultUpdate}){
         <>
    <div className="result-number-block">
                 <h3>
-                  P10: 
+                  Initial Permutation  : 
                   <span className="bit-block">
                     {ip.map((element,j)=>(
                         <span key={j} className="bit-element">{element}</span>
@@ -48,7 +48,7 @@ export default function ConversionIP({inputText,ip,onResultUpdate}){
                   <p className="generation-line" key={i}>{text}</p>
                 ))}
                 <h3>
-                  Updated PT : {" "}
+                  Updated PlainText : {" "}
                   <span className="bit-block">
                   {result.map((char, i) => (
                     <span key={i} className="bit-element">
