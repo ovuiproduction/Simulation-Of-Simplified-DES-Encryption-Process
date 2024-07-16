@@ -39,10 +39,20 @@ export default function DivideAndEP({ inputText, ep, onResultUpdate }) {
   return (
     <>
       <div className="lcs1-main-container">
-        <h3>
-          Initial Permuted Text :
+        <h3 className="bit-number-display">
+          <span>Initial Permuted Text : </span>
           <span className="bit-block">
             {inputText.map((element, j) => (
+              <span key={j} className="bit-element">
+                {element}
+              </span>
+            ))}
+          </span>
+        </h3>
+        <h3 className="bit-number-display">
+          <span>EP : </span>
+          <span className="bit-block">
+            {ep.map((element, j) => (
               <span key={j} className="bit-element">
                 {element}
               </span>

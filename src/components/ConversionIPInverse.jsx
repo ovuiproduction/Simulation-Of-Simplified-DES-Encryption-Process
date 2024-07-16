@@ -16,7 +16,7 @@ export default function ConversionIPInverse({inputText,ipInverse,onResultUpdate}
               setDetailedText((prev) => {
                 const newText = [
                   ...prev,
-                  `updatedPT[${i}] = PT[IP[${i}]-1] = PT[${index - 1}] = ${inputText[index - 1]}`
+                  `updatedPT[${i}] = Word[IP Inverse[${i}]-1] = PT[${index - 1}] = ${inputText[index - 1]}`
                 ];
                 return newText;
               });

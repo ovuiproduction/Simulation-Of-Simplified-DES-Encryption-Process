@@ -125,8 +125,8 @@ export default function DES() {
           <div className="solution-sub-block">
             <h1>Key Generation</h1>
             <div className="result-number-block">
-              <h3>
-                Random Key (10 bit) :
+              <h3 className="bit-number-display">
+                <span>Random Key (10 bit) : </span>
                 <span className="bit-block">
                   {randomKey.map((element, index) => (
                     <span key={index} className="bit-element">
@@ -156,7 +156,7 @@ export default function DES() {
             {step >= 6 && step <= 21 && (
               <h1>
                 Encrytion of PlainText
-                <button onClick={() => setStep(7)}>
+                <button className="plaintext-start-btn" onClick={() => setStep(7)}>
                   Apply Initial Permutation
                 </button>
               </h1>

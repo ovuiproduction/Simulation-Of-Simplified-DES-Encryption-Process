@@ -16,7 +16,7 @@ export default function DetermineXOR({inputText1,inputText2,onResultUpdate}){
               setDetailedText((prev) => {
                 const newText = [
                   ...prev,
-                  `Result[${i}] = EP[${i}] ^ Key1[${i}] = ${inputText1[i]} ^ ${inputText2[i]} = ${inputText1[i]^inputText2[i]}`
+                  `Result[${i}] = Block1[${i}] ^ Block2[${i}] = ${inputText1[i]} ^ ${inputText2[i]} = ${inputText1[i]^inputText2[i]}`
                 ];
                 return newText;
               });

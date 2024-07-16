@@ -87,7 +87,7 @@ export default function KeyGeneration({
             onResultUpdate={handleP8Conversion}
           />
           <h2>
-            Start Key2 Generation
+            Start Key 2 Generation
             <button onClick={() => setStep(5)}>Apply Left Shift 2</button>
           </h2>
         </>

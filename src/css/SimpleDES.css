@@ -8,7 +8,7 @@ h1,p{
     margin:0px;
 }
 
-/* header */
+
 .header{
     width:100%;
     height:10vh;
@@ -26,12 +26,12 @@ h1,p{
     color: rgb(15, 100, 72);
 }
 
-/* mainblock */
+
 .main-block{
     width:100%;
     height:auto;
 }
-/* inputblock */
+
 .input-block{
     width:max-content;
     height:max-content;
@@ -169,9 +169,8 @@ h1,p{
 
 .bit-number-display{
     display: grid;
-    grid-template-columns:1fr 5fr;
-    grid-column: auto;
-    
+    grid-template-columns:1.2fr 4.8fr;
+    grid-column: auto; 
 }
 
 
@@ -215,4 +214,16 @@ h1,p{
     grid-template-columns:1fr 1fr;
     grid-column: auto;
     grid-row: auto;
+}
+
+.solution-sub-block button{
+    margin-left:1rem;
+    padding:0.5rem 1rem 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.plaintext-start-btn{
+    background-color:aliceblue;
+    border: 1px solid rgb(26, 39, 51);
+    border-radius:3px;
 }
