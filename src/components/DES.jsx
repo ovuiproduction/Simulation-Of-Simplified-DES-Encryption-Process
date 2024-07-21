@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import OtpInput from "react-otp-input";
 import "../css/SimpleDES.css";
 
+import TwoDigitInput from "./TwoDigitInput";
+import MatrixInput from "./MatrixInput";
 // Plaintext Converison
 import ConversionIP from "./ConversionIP";
 import ConversionIPInverse from "./ConversionIPInverse";
@@ -12,30 +14,96 @@ import KeyGeneration from "./KeyGeneration";
 
 export default function DES() {
   // inputs states
-  const [plainText, setPlainText] = useState([1, 0, 1, 0, 0, 1, 0, 1]);
-  const [randomKey, setRandomKey] = useState([0, 0, 1, 0, 0, 1, 0, 1, 1, 1]);
-  const [p10, setP10] = useState([3, 5, 2, 7, 4, 10, 1, 9, 8, 6]);
-  const [p8, setP8] = useState([6, 3, 7, 4, 8, 5, 10, 9]);
-  const [p4, setP4] = useState([2, 4, 3, 1]);
-  const [ip, setIp] = useState([2, 6, 3, 1, 4, 8, 5, 7]);
-  const [ipInverse, setIpInverse] = useState([4, 1, 3, 5, 7, 2, 8, 6]);
-  const [ep, setEp] = useState([4, 1, 2, 3, 2, 3, 4, 1]);
-  // const [s0,setS0] = useState(Array.from({ length: 4 }, () => Array(4).fill("")));
-  // const [s1,setS1] = useState(Array.from({ length: 4 }, () => Array(4).fill("")));
+  // const [plainText, setPlainText] = useState([1, 0, 1, 0, 0, 1, 0, 1]);
+  // const [randomKey, setRandomKey] = useState([0, 0, 1, 0, 0, 1, 0, 1, 1, 1]);
+  // const [p10, setP10] = useState([3, 5, 2, 7, 4, 10, 1, 9, 8, 6]);
+  // const [p8, setP8] = useState([6, 3, 7, 4, 8, 5, 10, 9]);
+  // const [p4, setP4] = useState([2, 4, 3, 1]);
+  // const [ip, setIp] = useState([2, 6, 3, 1, 4, 8, 5, 7]);
+  // const [ipInverse, setIpInverse] = useState([4, 1, 3, 5, 7, 2, 8, 6]);
+  // const [ep, setEp] = useState([4, 1, 2, 3, 2, 3, 4, 1]);
+  const [plainText, setPlaintext] = useState(new Array(8).fill(""));
+  const [randomKey, setRandomKey] = useState(new Array(8).fill(""));
+  const [p10, setP10] = useState(new Array(10).fill(""));
+  const [p8, setP8] = useState(new Array(8).fill(""));
+  const [p4, setP4] = useState(new Array(4).fill(""));
+  const [ip, setIp] = useState(new Array(8).fill(""));
+  const [ipInverse, setIpInverse] = useState(new Array(8).fill(""));
+  const [ep, setEp] = useState(new Array(8).fill(""));
+  const [s0, setS0] = useState(
+    Array.from({ length: 4 }, () => Array(4).fill(""))
+  );
+  const [s1, setS1] = useState(
+    Array.from({ length: 4 }, () => Array(4).fill(""))
+  );
+
+  const handlePlaintextChange = (value) => {
+    const updatedPlaintext = value.split("");
+    setPlaintext(updatedPlaintext);
+  };
+
+  const handleRandomKeyChange = (value) => {
+    const updatedKey = value.split("");
+    setRandomKey(updatedKey);
+  };
+
+  const handleIpChange = (value) => {
+    const updatedIp = value.split("");
+    setIp(updatedIp);
+  };
+
+  const handleP4Change = (value) => {
+    const updatedP4 = value.split("");
+    setP4(updatedP4);
+  };
+
+  const handleEpChange = (value) => {
+    const updatedEp = value.split("");
+    setEp(updatedEp);
+  };
+
+  const handleIpInverseChange = (value) => {
+    const updatedIpInverse = value.split("");
+    setIpInverse(updatedIpInverse);
+  };
+
+  const handleStartSignal = () => {
+    const isFilled = (arr) => arr.every((val) => val !== "");
+    const isMatrixFilled = (matrix) =>
+      matrix.every((row) => row.every((val) => val !== ""));
+
+    if (
+      isFilled(plainText) &&
+      isFilled(randomKey) &&
+      isFilled(p10) &&
+      isFilled(p8) &&
+      isFilled(p4) &&
+      isFilled(ip) &&
+      isFilled(ipInverse) &&
+      isFilled(ep) &&
+      isMatrixFilled(s0) &&
+      isMatrixFilled(s1)
+    ) {
+      setStep(1);
+    } else {
+      alert("Information Missing...");
+    }
+  };
+
   // const s0 = [[1,0,3,2],[3,2,1,0],[0,2,1,3],[3,1,3,2]];
   // const s1 = [[0,1,2,3],[2,0,1,3],[3,0,1,0],[2,1,0,3]];
-  const s0 = [
-    [1, 0, 3, 2],
-    [3, 2, 1, 0],
-    [0, 2, 1, 3],
-    [3, 1, 3, 2],
-  ];
-  const s1 = [
-    [0, 1, 2, 3],
-    [2, 0, 1, 3],
-    [3, 0, 1, 0],
-    [2, 1, 0, 3],
-  ];
+  // const s0 = [
+  //   [1, 0, 3, 2],
+  //   [3, 2, 1, 0],
+  //   [0, 2, 1, 3],
+  //   [3, 1, 3, 2],
+  // ];
+  // const s1 = [
+  //   [0, 1, 2, 3],
+  //   [2, 0, 1, 3],
+  //   [3, 0, 1, 0],
+  //   [2, 1, 0, 3],
+  // ];
 
   // step
   const [step, setStep] = useState(0);
@@ -94,11 +162,15 @@ export default function DES() {
         <h1 className="header-text">DES Algorithm - 8 Bit</h1>
       </header>
       <div className="main-block">
+        <p className="instruction-text">
+          *P10 and P8 takes two digit inputs , if you want to fill 8 then fill
+          08
+        </p>
         <div className="input-block">
           <h2>PlainText</h2>
           <OtpInput
             value={plainText.join("")}
-            onChange={(e) => setPlainText(e.target.value.split(""))}
+            onChange={handlePlaintextChange}
             numInputs={8}
             renderSeparator={<span className="input-span"></span>}
             renderInput={(props) => <input {...props} />}
@@ -107,16 +179,72 @@ export default function DES() {
           <h2>Key</h2>
           <OtpInput
             value={randomKey.join("")}
-            onChange={(e) => setRandomKey(e.target.value.split(""))}
+            onChange={handleRandomKeyChange}
             numInputs={10}
             renderSeparator={<span className="input-span"></span>}
             renderInput={(props) => <input {...props} />}
             inputStyle={"input-box"}
           />
+          <h2>P10</h2>
+          <TwoDigitInput value={p10} onChange={setP10} numInputs={10} />
+          <h2>P8</h2>
+          <TwoDigitInput value={p8} onChange={setP8} numInputs={8} />
+          <h2>P4</h2>
+          <OtpInput
+            value={p4.join("")}
+            onChange={handleP4Change}
+            numInputs={4}
+            renderSeparator={<span className="input-span"></span>}
+            renderInput={(props) => <input {...props} />}
+            inputStyle={"input-box"}
+          />
+          <h2>E/P</h2>
+          <OtpInput
+            value={ep.join("")}
+            onChange={handleEpChange}
+            numInputs={8}
+            renderSeparator={<span className="input-span"></span>}
+            renderInput={(props) => <input {...props} />}
+            inputStyle={"input-box"}
+          />
+          <h2>IP</h2>
+          <OtpInput
+            value={ip.join("")}
+            onChange={handleIpChange}
+            numInputs={8}
+            renderSeparator={<span className="input-span"></span>}
+            renderInput={(props) => <input {...props} />}
+            inputStyle={"input-box"}
+          />
+          <h2>
+            IP<sup className="inverse">-1</sup>
+          </h2>
+          <OtpInput
+            value={ipInverse.join("")}
+            onChange={handleIpInverseChange}
+            numInputs={8}
+            renderSeparator={<span className="input-span"></span>}
+            renderInput={(props) => <input {...props} />}
+            inputStyle={"input-box"}
+          />
+        </div>
+        <div className="matrix-input-block">
+          <div className="matrix-block">
+            <h2>S0</h2>
+            <div>
+              <MatrixInput matrix={s0} setMatrix={setS0} />
+            </div>
+          </div>
+          <div className="matrix-block">
+            <h2>S1</h2>
+            <div>
+              <MatrixInput matrix={s1} setMatrix={setS1} />
+            </div>
+          </div>
         </div>
       </div>
       <div className="submit-btn-block">
-        <button onClick={() => setStep(1)} className="submit-btn">
+        <button onClick={handleStartSignal} className="submit-btn">
           Start
         </button>
       </div>
@@ -156,7 +284,10 @@ export default function DES() {
             {step >= 6 && step <= 21 && (
               <h1>
                 Encrytion of PlainText
-                <button className="plaintext-start-btn" onClick={() => setStep(7)}>
+                <button
+                  className="plaintext-start-btn"
+                  onClick={() => setStep(7)}
+                >
                   Apply Initial Permutation
                 </button>
               </h1>

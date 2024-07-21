@@ -32,6 +32,7 @@ const TwoDigitInput = ({ value, onChange, numInputs }) => {
   }, [numInputs]);
 
   return (
+    <>
     <div className="two-digit-inputs">
       {Array(numInputs).fill(0).map((_, index) => (
         <input
@@ -46,6 +47,7 @@ const TwoDigitInput = ({ value, onChange, numInputs }) => {
         />
       ))}
     </div>
+    </>
   );
 };
 
