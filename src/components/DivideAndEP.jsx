@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "../css/simple-des-min.css";
 
 export default function DivideAndEP({ inputText, ep, onResultUpdate }) {
   const [epRightNibble, setEPRightNibble] = useState([]);
@@ -38,51 +39,55 @@ export default function DivideAndEP({ inputText, ep, onResultUpdate }) {
 
   return (
     <>
-      <div className="lcs1-main-container">
-        <h3 className="bit-number-display">
-          <span>Initial Permuted Text : </span>
-          <span className="bit-block">
+      <div className="result-number-block">
+        <div className="bit-number-display">
+          <h3>Initial Permuted Text :</h3>
+          <div className="bit-block">
             {inputText.map((element, j) => (
               <span key={j} className="bit-element">
                 {element}
               </span>
             ))}
-          </span>
-        </h3>
-        <h3 className="bit-number-display">
-          <span>EP : </span>
-          <span className="bit-block">
+          </div>
+        </div>
+
+        <div className="bit-number-display">
+          <h3>EP :</h3>
+          <div className="bit-block">
             {ep.map((element, j) => (
               <span key={j} className="bit-element">
                 {element}
               </span>
             ))}
-          </span>
-        </h3>
+          </div>
+        </div>
+
         <div className="lsc1-main-block">
           <div className="lsc1-sub-block">
-            <h3>
-              Left Nibble :
-              <span className="bit-block">
+            <div className="bit-number-display">
+              <h3>Left Nibble :</h3>
+              <div className="bit-block">
                 {leftNibble.map((element, j) => (
                   <span key={`left-${j}`} className="bit-element">
                     {element}
                   </span>
                 ))}
-              </span>
-            </h3>
+              </div>
+            </div>
           </div>
+
           <div className="lsc1-sub-block">
-            <h3>
-              Right Nibble :
-              <span className="bit-block">
+            <div className="bit-number-display">
+              <h3>Right Nibble : </h3>
+              <div className="bit-block">
                 {rightNibble.map((element, j) => (
                   <span key={`right-${j}`} className="bit-element">
                     {element}
                   </span>
                 ))}
-              </span>
-            </h3>
+              </div>
+            </div>
+
             <div className="array-generation-block">
               {detailedTextRightNibble.map((element, i) => (
                 <p className="generation-line" key={i}>
@@ -90,16 +95,16 @@ export default function DivideAndEP({ inputText, ep, onResultUpdate }) {
                 </p>
               ))}
             </div>
-            <h3>
-              Updated Right Nibble:
-              <span className="bit-block">
-                {epRightNibble.map((element, j) => (
-                  <span key={`right-updated-${j}`} className="bit-element">
-                    {element}
-                  </span>
-                ))}
+          </div>
+        </div>
+        <div className="bit-number-display">
+          <h3>Updated Right Nibble: </h3>
+          <div className="bit-block">
+            {epRightNibble.map((element, j) => (
+              <span key={`right-updated-${j}`} className="bit-element">
+                {element}
               </span>
-            </h3>
+            ))}
           </div>
         </div>
       </div>

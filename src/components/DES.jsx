@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import OtpInput from "react-otp-input";
+
 import "../css/SimpleDES.css";
+import "../css/simple-des-min.css";
 
 import TwoDigitInput from "./TwoDigitInput";
 import MatrixInput from "./MatrixInput";
@@ -22,6 +24,7 @@ export default function DES() {
   // const [ip, setIp] = useState([2, 6, 3, 1, 4, 8, 5, 7]);
   // const [ipInverse, setIpInverse] = useState([4, 1, 3, 5, 7, 2, 8, 6]);
   // const [ep, setEp] = useState([4, 1, 2, 3, 2, 3, 4, 1]);
+
   const [plainText, setPlaintext] = useState(new Array(8).fill(""));
   const [randomKey, setRandomKey] = useState(new Array(8).fill(""));
   const [p10, setP10] = useState(new Array(10).fill(""));
@@ -37,9 +40,26 @@ export default function DES() {
     Array.from({ length: 4 }, () => Array(4).fill(""))
   );
 
-  const handlePlaintextChange = (value) => {
+  // const matrix0 = [
+  //   [1, 0, 3, 2],
+  //   [3, 2, 1, 0],
+  //   [0, 2, 1, 3],
+  //   [3, 1, 3, 2],
+  // ];
+  // const matrixs1 = [
+  //   [0, 1, 2, 3],
+  //   [2, 0, 1, 3],
+  //   [3, 0, 1, 0],
+  //   [2, 1, 0, 3],
+  // ];
+  // useEffect(() => {
+  //   setS0(matrix0);
+  //   setS1(matrixs1);
+  // }, []);
+
+  const handlePlainTextChange = (value) => {
     const updatedPlaintext = value.split("");
-    setPlaintext(updatedPlaintext);
+    setPlainText(updatedPlaintext);
   };
 
   const handleRandomKeyChange = (value) => {
@@ -170,7 +190,7 @@ export default function DES() {
           <h2>PlainText</h2>
           <OtpInput
             value={plainText.join("")}
-            onChange={handlePlaintextChange}
+            onChange={handlePlainTextChange}
             numInputs={8}
             renderSeparator={<span className="input-span"></span>}
             renderInput={(props) => <input {...props} />}
@@ -253,16 +273,16 @@ export default function DES() {
           <div className="solution-sub-block">
             <h1>Key Generation</h1>
             <div className="result-number-block">
-              <h3 className="bit-number-display">
-                <span>Random Key (10 bit) : </span>
-                <span className="bit-block">
+              <div className="bit-number-display">
+                <h3>Random Key (10 bit) : </h3>
+                <div className="bit-block">
                   {randomKey.map((element, index) => (
                     <span key={index} className="bit-element">
                       {element}
                     </span>
                   ))}
-                </span>
-              </h3>
+                </div>
+              </div>
             </div>
             <h2>
               Applying P10 On 10 Bit Random key
@@ -367,16 +387,17 @@ export default function DES() {
                   ipInverse={ipInverse}
                   onResultUpdate={handleIpInverseConversion}
                 />
-                <h1>
-                  Cipher Text :
-                  <span className="bit-block">
+
+                <div className="bit-number-display">
+                  <h1>Cipher Text : </h1>
+                  <div className="bit-block">
                     {cipherText.map((element, j) => (
                       <span key={j} className="bit-element">
                         {element}
                       </span>
                     ))}
-                  </span>
-                </h1>
+                  </div>
+                </div>
               </>
             )}
           </div>

@@ -35,7 +35,7 @@ export default function LCS1({ p10ConvertedKey, onResultUpdate }) {
             ];
             return newText;
           });
-        }, i * 1500); // Adjust the delay as needed
+        }, i * 1500);
       });
     };
 
@@ -59,7 +59,7 @@ export default function LCS1({ p10ConvertedKey, onResultUpdate }) {
             ];
             return newText;
           });
-        }, i * 1500); // Adjust the delay as needed
+        }, i * 1500);
       });
     };
 
@@ -82,29 +82,31 @@ export default function LCS1({ p10ConvertedKey, onResultUpdate }) {
 
   return (
     <>
-      <div className="lcs1-main-container">
-        <h3>
-          P10 Converted Key :
-          <span className="bit-block">
+      <div className="result-number-block">
+        <div className="bit-number-display">
+          <h3>P10 Converted Key : </h3>
+          <div className="bit-block">
             {p10ConvertedKey.map((element, j) => (
               <span key={j} className="bit-element">
                 {element}
               </span>
             ))}
-          </span>
-        </h3>
+          </div>
+        </div>
+
         <div className="lsc1-main-block">
           <div className="lsc1-sub-block">
-            <h3>
-              Left Nibble:
-              <span className="bit-block">
+            <div className="bit-number-display">
+              <h3>Left Nibble: </h3>
+              <div className="bit-block">
                 {leftNibble.map((element, j) => (
                   <span key={`left-${j}`} className="bit-element">
                     {element}
                   </span>
                 ))}
-              </span>
-            </h3>
+              </div>
+            </div>
+
             <div className="array-generation-block">
               {detailedTextLeftNibble.map((element, i) => (
                 <p className="generation-line" key={i}>
@@ -112,28 +114,31 @@ export default function LCS1({ p10ConvertedKey, onResultUpdate }) {
                 </p>
               ))}
             </div>
-            <h3>
-              Updated Left Nibble:
-              <span className="bit-block">
+
+            <div className="bit-number-display">
+              <h3>Updated Left Nibble: </h3>
+              <div className="bit-block">
                 {newLeftNibble.map((element, j) => (
                   <span key={`left-updated-${j}`} className="bit-element">
                     {element}
                   </span>
                 ))}
-              </span>
-            </h3>
+              </div>
+            </div>
           </div>
+
           <div className="lsc1-sub-block">
-            <h3>
-              Right Nibble:
-              <span className="bit-block">
+            <div className="bit-number-display">
+              <h3>Right Nibble: </h3>
+              <div className="bit-block">
                 {rightNibble.map((element, j) => (
                   <span key={`right-${j}`} className="bit-element">
                     {element}
                   </span>
                 ))}
-              </span>
-            </h3>
+              </div>
+            </div>
+
             <div className="array-generation-block">
               {detailedTextRightNibble.map((element, i) => (
                 <p className="generation-line" key={i}>
@@ -141,28 +146,30 @@ export default function LCS1({ p10ConvertedKey, onResultUpdate }) {
                 </p>
               ))}
             </div>
-            <h3>
-              Updated Right Nibble:
-              <span className="bit-block">
+
+            <div className="bit-number-display">
+              <h3>Updated Right Nibble: </h3>
+              <div className="bit-block">
                 {newRightNibble.map((element, j) => (
                   <span key={`right-updated-${j}`} className="bit-element">
                     {element}
                   </span>
                 ))}
-              </span>
-            </h3>
+              </div>
+            </div>
           </div>
         </div>
-        <h3>
-          Left Shift Result:
-          <span className="bit-block">
+
+        <div className="bit-number-display">
+          <h3>Left Shift Result: </h3>
+          <div className="bit-block">
             {result.map((element, j) => (
               <span key={`result-${j}`} className="bit-element">
                 {element}
               </span>
             ))}
-          </span>
-        </h3>
+          </div>
+        </div>
       </div>
     </>
   );

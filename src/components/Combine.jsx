@@ -21,38 +21,40 @@ export default function Combine({ inputText1, inputText2, onResultUpdate }) {
     <>
       <div className="result-number-block">
         <div className="combine-block">
-        <h3>
-          P4 ⊕ Initial Nibble Left :
-          <span className="bit-block">
+
+        <div className="bit-number-display">
+        <h3>P4 ⊕ Initial Nibble Left : </h3>
+          <div className="bit-block">
             {inputText1.map((element, j) => (
               <span key={j} className="bit-element">
                 {element}
               </span>
             ))}
-          </span>
-        </h3>
-        <h3>
-          Initial Nibble Right :
-          <span className="bit-block">
+          </div>
+        </div>
+
+        <div className="bit-number-display">
+        <h3>Initial Nibble Right :  </h3>
+          <div className="bit-block">
             {inputText2.map((element, j) => (
               <span key={j} className="bit-element">
                 {element}
               </span>
             ))}
-          </span>
-        </h3>
+          </div>
         </div>
-        <h3>
-        New (8 bit) Word  : {" "}
-          <span className="bit-block">
+        </div>
+
+        <div className="bit-number-display">
+        <h3>New (8 bit) Word  : {" "} </h3>
+          <div className="bit-block">
             {result.map((char, i) => (
               <span key={i} className="bit-element">
                 {char}
               </span>
             ))}
-          </span>
-        </h3>
-
+          </div>
+        </div>
       </div>
     </>
   );

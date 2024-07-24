@@ -37,31 +37,33 @@ export default function ConversionP10({ randomKey, p10, onResultUpdate }) {
   return (
     <>
       <div className="result-number-block">
-        <h3>
-          P10 :
-          <span className="bit-block">
+        <div className="bit-number-display">
+          <h3>P10 : </h3>
+          <div className="bit-block">
             {p10.map((element, j) => (
               <span key={j} className="bit-element">
                 {element}
               </span>
             ))}
-          </span>
-        </h3>
+          </div>
+        </div>
+        <div className="array-generation-block">
         {detailedText.map((text, i) => (
           <p className="generation-line" key={i}>
             {text}
           </p>
         ))}
-        <h3>
-          Updated Text :{" "}
-          <span className="bit-block">
-            {newKey.map((char, i) => (
-              <span key={i} className="bit-element">
-                {char}
-              </span>
-            ))}
-          </span>
-        </h3>
+        </div>
+        <div className="bit-number-display"></div>
+        <h3>Updated Text : </h3>
+        <div className="bit-block">
+          {newKey.map((char, i) => (
+            <span key={i} className="bit-element">
+              {char}
+            </span>
+          ))}
+        </div>
+        <div className="bit-number-display"></div>
       </div>
     </>
   );
