@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "../css/SimpleDES.css";
+
+import "../css/simple-des-max.css";
+import "../css/simple-des-min.css";
 
 export default function SboxResult({ inputText, s0, s1, onResultUpdate }) {
   const [newLeftNibble, setNewLeftNibble] = useState([]);
@@ -117,8 +119,9 @@ export default function SboxResult({ inputText, s0, s1, onResultUpdate }) {
               </p>
             ))}
             
-            <p className="matrix-result-bit-block">
-              S0 Matrix value Bit:
+            <div className="matrix-result-bit-block">
+            <div className="bit-number-display-lcs1">
+              <h3>S0 Matrix value Bit:</h3>
               <div className="bit-block">
                 {newLeftNibble.map((element, i) => (
                   <span key={`s0Bit-${i}`} className="bit-element">
@@ -126,7 +129,8 @@ export default function SboxResult({ inputText, s0, s1, onResultUpdate }) {
                   </span>
                 ))}
               </div>
-            </p>
+              </div>
+            </div>
           </div>
         </div>
         <div className="lsc1-sub-block">
@@ -147,8 +151,9 @@ export default function SboxResult({ inputText, s0, s1, onResultUpdate }) {
                 {text}
               </p>
             ))}
-            <p className="matrix-result-bit-block">
-              S1 Matrix value Bit:
+            <div className="matrix-result-bit-block">
+            <div className="bit-number-display-lcs1">
+              <h3>S1 Matrix value Bit:</h3>
               <div className="bit-block">
                 {newRightNibble.map((element, i) => (
                   <span key={`s1Bit-${i}`} className="bit-element">
@@ -156,7 +161,8 @@ export default function SboxResult({ inputText, s0, s1, onResultUpdate }) {
                   </span>
                 ))}
               </div>
-            </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

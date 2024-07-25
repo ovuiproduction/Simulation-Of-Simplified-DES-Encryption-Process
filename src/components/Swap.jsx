@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "../css/SimpleDES.css";
+
+import "../css/simple-des-max.css";
+import "../css/simple-des-min.css";
 
 export default function Swap({ inputText, onResultUpdate }) {
   const [result, setResult] = useState([]);

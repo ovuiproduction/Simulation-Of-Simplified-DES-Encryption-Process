@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 
+import "../css/simple-des-max.css";
+import "../css/simple-des-min.css";
+
 export default function ConversionP10({ randomKey, p10, onResultUpdate }) {
   const [newKey, setNewKey] = useState([]);
   const [detailedText, setDetailedText] = useState([]);
-  // const [p10ConvertedKey,setP10ConvertedKey] = useState([]);
-
+  
   useEffect(() => {
     p10.forEach((index, i) => {
       setTimeout(() => {
@@ -54,7 +56,7 @@ export default function ConversionP10({ randomKey, p10, onResultUpdate }) {
           </p>
         ))}
         </div>
-        <div className="bit-number-display"></div>
+        <div className="bit-number-display">
         <h3>Updated Text : </h3>
         <div className="bit-block">
           {newKey.map((char, i) => (
@@ -63,7 +65,7 @@ export default function ConversionP10({ randomKey, p10, onResultUpdate }) {
             </span>
           ))}
         </div>
-        <div className="bit-number-display"></div>
+      </div>
       </div>
     </>
   );

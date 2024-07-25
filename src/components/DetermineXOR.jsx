@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "../css/SimpleDES.css";
+
+import "../css/simple-des-max.css";
+import "../css/simple-des-min.css";
 
 export default function DetermineXOR({
   inputText1,
@@ -56,7 +58,7 @@ export default function DetermineXOR({
         </div>
 
         <div className="bit-number-display">
-          <h3 className="bit-number-display">Block2 : </h3>
+          <h3>Block2 : </h3>
           <div className="bit-block">
             {inputText2.map((element, j) => (
               <span key={j} className="bit-element">

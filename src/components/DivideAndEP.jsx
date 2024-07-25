@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+
+import "../css/simple-des-max.css";
 import "../css/simple-des-min.css";
 
 export default function DivideAndEP({ inputText, ep, onResultUpdate }) {

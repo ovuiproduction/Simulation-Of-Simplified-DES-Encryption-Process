@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 
+import "../css/simple-des-max.css";
+import "../css/simple-des-min.css";
+
 export default function ConversionP8({ leftShiftResult, p8, onResultUpdate }) {
   const [p8ConvertedKey, setP8ConvertedKey] = useState([]);
   const [detailedText, setDetailedText] = useState([]);

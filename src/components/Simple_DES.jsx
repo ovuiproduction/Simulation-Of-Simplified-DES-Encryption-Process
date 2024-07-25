@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import OtpInput from "react-otp-input";
 
-import "../css/SimpleDES.css";
+import "../css/simple-des-max.css";
 import "../css/simple-des-min.css";
 
 import TwoDigitInput from "./TwoDigitInput";
 import MatrixInput from "./MatrixInput";
+
 // Plaintext Converison
 import ConversionIP from "./ConversionIP";
 import ConversionIPInverse from "./ConversionIPInverse";
@@ -14,18 +15,8 @@ import RoundFunction1 from "./RoundFunction1";
 import RoundFunction2 from "./RoundFunction2";
 import KeyGeneration from "./KeyGeneration";
 
-export default function DES() {
-  // inputs states
-  // const [plainText, setPlainText] = useState([1, 0, 1, 0, 0, 1, 0, 1]);
-  // const [randomKey, setRandomKey] = useState([0, 0, 1, 0, 0, 1, 0, 1, 1, 1]);
-  // const [p10, setP10] = useState([3, 5, 2, 7, 4, 10, 1, 9, 8, 6]);
-  // const [p8, setP8] = useState([6, 3, 7, 4, 8, 5, 10, 9]);
-  // const [p4, setP4] = useState([2, 4, 3, 1]);
-  // const [ip, setIp] = useState([2, 6, 3, 1, 4, 8, 5, 7]);
-  // const [ipInverse, setIpInverse] = useState([4, 1, 3, 5, 7, 2, 8, 6]);
-  // const [ep, setEp] = useState([4, 1, 2, 3, 2, 3, 4, 1]);
-
-  const [plainText, setPlaintext] = useState(new Array(8).fill(""));
+export default function Simple_DES() {
+  const [plainText, setPlainText] = useState(new Array(8).fill(""));
   const [randomKey, setRandomKey] = useState(new Array(8).fill(""));
   const [p10, setP10] = useState(new Array(10).fill(""));
   const [p8, setP8] = useState(new Array(8).fill(""));
@@ -40,22 +31,55 @@ export default function DES() {
     Array.from({ length: 4 }, () => Array(4).fill(""))
   );
 
-  // const matrix0 = [
-  //   [1, 0, 3, 2],
-  //   [3, 2, 1, 0],
-  //   [0, 2, 1, 3],
-  //   [3, 1, 3, 2],
-  // ];
-  // const matrixs1 = [
-  //   [0, 1, 2, 3],
-  //   [2, 0, 1, 3],
-  //   [3, 0, 1, 0],
-  //   [2, 1, 0, 3],
-  // ];
-  // useEffect(() => {
-  //   setS0(matrix0);
-  //   setS1(matrixs1);
-  // }, []);
+  const handleAutoFill = () => {
+    const plainText = [1, 0, 1, 0, 0, 1, 0, 1];
+    const randomKey = [0, 0, 1, 0, 0, 1, 0, 1, 1, 1];
+    const p10 = [3, 5, 2, 7, 4, 10, 1, 9, 8, 6];
+    const p8 = [6, 3, 7, 4, 8, 5, 10, 9];
+    const p4 = [2, 4, 3, 1];
+    const ip = [2, 6, 3, 1, 4, 8, 5, 7];
+    const ipInverse = [4, 1, 3, 5, 7, 2, 8, 6];
+    const ep = [4, 1, 2, 3, 2, 3, 4, 1];
+    const matrixS0 = [
+      [1, 0, 3, 2],
+      [3, 2, 1, 0],
+      [0, 2, 1, 3],
+      [3, 1, 3, 2],
+    ];
+    const matrixS1 = [
+      [0, 1, 2, 3],
+      [2, 0, 1, 3],
+      [3, 0, 1, 0],
+      [2, 1, 0, 3],
+    ];
+    setPlainText(plainText);
+    setRandomKey(randomKey);
+    setP10(p10);
+    setP8(p8);
+    setP4(p4);
+    setIp(ip);
+    setIpInverse(ipInverse);
+    setEp(ep);
+    setS0(matrixS0);
+    setS1(matrixS1);
+  };
+
+  const handleManualFill = () => {
+    setPlainText(new Array(8).fill(""));
+    setRandomKey(new Array(10).fill(""));
+    setP10(new Array(10).fill(""));
+    setP8(new Array(8).fill(""));
+    setP4(new Array(4).fill(""));
+    setIp(new Array(8).fill(""));
+    setIpInverse(new Array(8).fill(""));
+    setEp(new Array(8).fill(""));
+    setS0(Array.from({ length: 4 }, () => Array(4).fill("")));
+    setS1(Array.from({ length: 4 }, () => Array(4).fill("")));
+  };
+
+  const handleRefreshPage = () => {
+    window.location.reload(false);
+  };
 
   const handlePlainTextChange = (value) => {
     const updatedPlaintext = value.split("");
@@ -109,21 +133,6 @@ export default function DES() {
       alert("Information Missing...");
     }
   };
-
-  // const s0 = [[1,0,3,2],[3,2,1,0],[0,2,1,3],[3,1,3,2]];
-  // const s1 = [[0,1,2,3],[2,0,1,3],[3,0,1,0],[2,1,0,3]];
-  // const s0 = [
-  //   [1, 0, 3, 2],
-  //   [3, 2, 1, 0],
-  //   [0, 2, 1, 3],
-  //   [3, 1, 3, 2],
-  // ];
-  // const s1 = [
-  //   [0, 1, 2, 3],
-  //   [2, 0, 1, 3],
-  //   [3, 0, 1, 0],
-  //   [2, 1, 0, 3],
-  // ];
 
   // step
   const [step, setStep] = useState(0);
@@ -180,73 +189,130 @@ export default function DES() {
     <>
       <header className="header">
         <h1 className="header-text">DES Algorithm - 8 Bit</h1>
+        <button
+          onClick={handleRefreshPage}
+          className="control-mode-btn refresh-btn"
+        >
+          Refresh
+        </button>
       </header>
       <div className="main-block">
-        <p className="instruction-text">
-          *P10 and P8 takes two digit inputs , if you want to fill 8 then fill
-          08
-        </p>
-        <div className="input-block">
-          <h2>PlainText</h2>
-          <OtpInput
-            value={plainText.join("")}
-            onChange={handlePlainTextChange}
-            numInputs={8}
-            renderSeparator={<span className="input-span"></span>}
-            renderInput={(props) => <input {...props} />}
-            inputStyle={"input-box"}
-          />
-          <h2>Key</h2>
-          <OtpInput
-            value={randomKey.join("")}
-            onChange={handleRandomKeyChange}
-            numInputs={10}
-            renderSeparator={<span className="input-span"></span>}
-            renderInput={(props) => <input {...props} />}
-            inputStyle={"input-box"}
-          />
-          <h2>P10</h2>
-          <TwoDigitInput value={p10} onChange={setP10} numInputs={10} />
-          <h2>P8</h2>
-          <TwoDigitInput value={p8} onChange={setP8} numInputs={8} />
-          <h2>P4</h2>
-          <OtpInput
-            value={p4.join("")}
-            onChange={handleP4Change}
-            numInputs={4}
-            renderSeparator={<span className="input-span"></span>}
-            renderInput={(props) => <input {...props} />}
-            inputStyle={"input-box"}
-          />
-          <h2>E/P</h2>
-          <OtpInput
-            value={ep.join("")}
-            onChange={handleEpChange}
-            numInputs={8}
-            renderSeparator={<span className="input-span"></span>}
-            renderInput={(props) => <input {...props} />}
-            inputStyle={"input-box"}
-          />
-          <h2>IP</h2>
-          <OtpInput
-            value={ip.join("")}
-            onChange={handleIpChange}
-            numInputs={8}
-            renderSeparator={<span className="input-span"></span>}
-            renderInput={(props) => <input {...props} />}
-            inputStyle={"input-box"}
-          />
-          <h2>
-            IP<sup className="inverse">-1</sup>
-          </h2>
-          <OtpInput
-            value={ipInverse.join("")}
-            onChange={handleIpInverseChange}
-            numInputs={8}
-            renderSeparator={<span className="input-span"></span>}
-            renderInput={(props) => <input {...props} />}
-            inputStyle={"input-box"}
-          />
+        <div className="control-mode-block">
+          <div className="control-sub-block">
+            <button onClick={handleAutoFill} className="control-mode-btn">
+              Auto Fill Inputs
+            </button>
+            <button onClick={handleManualFill} className="control-mode-btn">
+              Manually Fill Inputs
+            </button>
+          </div>
+        </div>
+        <div className="input-container">
+          <div className="input-block">
+            <h2>PlainText</h2>
+            <div className="input-sub-block">
+              <OtpInput
+                value={plainText.join("")}
+                onChange={handlePlainTextChange}
+                numInputs={8}
+                renderSeparator={<span className="input-span"></span>}
+                renderInput={(props) => <input {...props} />}
+                inputStyle={"input-box"}
+              />
+            </div>
+          </div>
+
+          <div className="input-block">
+            <h2>Key</h2>
+            <div className="input-sub-block">
+              <OtpInput
+                value={randomKey.join("")}
+                onChange={handleRandomKeyChange}
+                numInputs={10}
+                renderSeparator={<span className="input-span"></span>}
+                renderInput={(props) => <input {...props} />}
+                inputStyle={"input-box"}
+              />
+            </div>
+          </div>
+
+          <div className="input-block">
+            <h2>P10</h2>
+            <p className="instruction-text">
+              *please use the two-digit format: “03”.
+            </p>
+            <div className="input-sub-block">
+              <TwoDigitInput value={p10} onChange={setP10} numInputs={10} />
+            </div>
+          </div>
+
+          <div className="input-block">
+            <h2>P8</h2>
+            <p className="instruction-text">
+              *please use the two-digit format: “08”.
+            </p>
+            <div className="input-sub-block">
+              <TwoDigitInput value={p8} onChange={setP8} numInputs={8} />
+            </div>
+          </div>
+
+          <div className="input-block">
+            <h2>P4</h2>
+            <div className="input-sub-block">
+              <OtpInput
+                value={p4.join("")}
+                onChange={handleP4Change}
+                numInputs={4}
+                renderSeparator={<span className="input-span"></span>}
+                renderInput={(props) => <input {...props} />}
+                inputStyle={"input-box"}
+              />
+            </div>
+          </div>
+
+          <div className="input-block">
+            <h2>E/P</h2>
+            <div className="input-sub-block">
+              <OtpInput
+                value={ep.join("")}
+                onChange={handleEpChange}
+                numInputs={8}
+                renderSeparator={<span className="input-span"></span>}
+                renderInput={(props) => <input {...props} />}
+                inputStyle={"input-box"}
+              />
+            </div>
+          </div>
+
+          <div className="input-block">
+            <h2>IP</h2>
+            <div className="input-sub-block">
+              <OtpInput
+                value={ip.join("")}
+                onChange={handleIpChange}
+                numInputs={8}
+                renderSeparator={<span className="input-span"></span>}
+                renderInput={(props) => <input {...props} />}
+                inputStyle={"input-box"}
+              />
+            </div>
+          </div>
+
+          <div className="input-block">
+            <h2>
+              IP<sup className="inverse">-1</sup>
+            </h2>
+            <div className="input-sub-block">
+              <OtpInput
+                value={ipInverse.join("")}
+                onChange={handleIpInverseChange}
+                numInputs={8}
+                renderSeparator={<span className="input-span"></span>}
+                renderInput={(props) => <input {...props} />}
+                inputStyle={"input-box"}
+              />
+            </div>
+          </div>
         </div>
         <div className="matrix-input-block">
           <div className="matrix-block">
@@ -265,7 +331,7 @@ export default function DES() {
       </div>
       <div className="submit-btn-block">
         <button onClick={handleStartSignal} className="submit-btn">
-          Start
+          Solve
         </button>
       </div>
       <div className="solution-block">
@@ -388,14 +454,16 @@ export default function DES() {
                   onResultUpdate={handleIpInverseConversion}
                 />
 
-                <div className="bit-number-display">
-                  <h1>Cipher Text : </h1>
-                  <div className="bit-block">
-                    {cipherText.map((element, j) => (
-                      <span key={j} className="bit-element">
-                        {element}
-                      </span>
-                    ))}
+                <div className="result-number-block">
+                  <div className="bit-number-display cipher-text-block">
+                    <h1>Cipher Text : </h1>
+                    <div className="bit-block">
+                      {cipherText.map((element, j) => (
+                        <span key={j} className="bit-element">
+                          {element}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </>

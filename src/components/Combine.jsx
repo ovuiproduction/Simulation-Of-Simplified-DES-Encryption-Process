@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "../css/SimpleDES.css";
+
+import "../css/simple-des-max.css";
+import "../css/simple-des-min.css";
 
 export default function Combine({ inputText1, inputText2, onResultUpdate }) {
 
@@ -22,7 +24,7 @@ export default function Combine({ inputText1, inputText2, onResultUpdate }) {
       <div className="result-number-block">
         <div className="combine-block">
 
-        <div className="bit-number-display">
+        <div className="bit-number-display-lcs1">
         <h3>P4 ⊕ Initial Nibble Left : </h3>
           <div className="bit-block">
             {inputText1.map((element, j) => (
@@ -33,7 +35,7 @@ export default function Combine({ inputText1, inputText2, onResultUpdate }) {
           </div>
         </div>
 
-        <div className="bit-number-display">
+        <div className="bit-number-display-lcs1">
         <h3>Initial Nibble Right :  </h3>
           <div className="bit-block">
             {inputText2.map((element, j) => (

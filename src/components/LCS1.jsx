@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "../css/SimpleDES.css";
+
+import "../css/simple-des-max.css";
+import "../css/simple-des-min.css";
 
 export default function LCS1({ p10ConvertedKey, onResultUpdate }) {
   const [newLeftNibble, setNewLeftNibble] = useState([]);
@@ -115,7 +117,7 @@ export default function LCS1({ p10ConvertedKey, onResultUpdate }) {
               ))}
             </div>
 
-            <div className="bit-number-display">
+            <div className="bit-number-display-lcs1">
               <h3>Updated Left Nibble: </h3>
               <div className="bit-block">
                 {newLeftNibble.map((element, j) => (
@@ -147,7 +149,7 @@ export default function LCS1({ p10ConvertedKey, onResultUpdate }) {
               ))}
             </div>
 
-            <div className="bit-number-display">
+            <div className="bit-number-display-lcs1">
               <h3>Updated Right Nibble: </h3>
               <div className="bit-block">
                 {newRightNibble.map((element, j) => (
