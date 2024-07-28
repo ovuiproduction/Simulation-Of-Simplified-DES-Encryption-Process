@@ -15,7 +15,7 @@ import RoundFunction1 from "./RoundFunction1";
 import RoundFunction2 from "./RoundFunction2";
 import KeyGeneration from "./KeyGeneration";
 
-export default function Simple_DES() {
+export default function TextEncryption() {
   const [plainText, setPlainText] = useState(new Array(8).fill(""));
   const [randomKey, setRandomKey] = useState(new Array(8).fill(""));
   const [p10, setP10] = useState(new Array(10).fill(""));
