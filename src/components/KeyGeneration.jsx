@@ -60,8 +60,8 @@ export default function KeyGeneration({
             onResultUpdate={handleP10Conversion}
           />
           <h2>
-            Applying Left Shift
-            <button onClick={() => setStep(3)}>Apply Left Shift</button>
+          Split and Circular Shift Left (LCS-1)
+            <button onClick={() => setStep(3)}>Apply LCS-1</button>
           </h2>
         </>
       )}
@@ -73,7 +73,7 @@ export default function KeyGeneration({
             onResultUpdate={handleLeftshift1ResultUpdate}
           />
           <h2>
-            Applying P8
+          Subkey 1 (K1) Generation
             <button onClick={() => setStep(4)}>Apply P8</button>
           </h2>
         </>
@@ -87,8 +87,8 @@ export default function KeyGeneration({
             onResultUpdate={handleP8Conversion}
           />
           <h2>
-            Start Key 2 Generation
-            <button onClick={() => setStep(5)}>Apply Left Shift 2</button>
+          Split and Circular Shift Left (LCS-2)
+            <button onClick={() => setStep(5)}>Apply LCS-2</button>
           </h2>
         </>
       )}
@@ -100,7 +100,7 @@ export default function KeyGeneration({
             onResultUpdate={handleLeftshift2ResultUpdate}
           />
           <h2>
-            Applying P8
+          Subkey 2 (K2) Generation
             <button onClick={() => setStep(6)}>Apply P8</button>
           </h2>
         </>

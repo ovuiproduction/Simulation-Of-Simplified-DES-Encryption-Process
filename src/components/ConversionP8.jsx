@@ -18,7 +18,7 @@ export default function ConversionP8({ leftShiftResult, p8, onResultUpdate }) {
         setDetailedText((prev) => {
           const newText = [
             ...prev,
-            `newKey[${i}] = key[P8[${i}]-1] = key[${index - 1}] = ${
+            `newKey[${i}] = lcs[P8[${i}]-1] = lcs[${index - 1}] = ${
               leftShiftResult[index - 1]
             }`,
           ];
@@ -44,6 +44,17 @@ export default function ConversionP8({ leftShiftResult, p8, onResultUpdate }) {
           <h3>P8 : </h3>
             <div className="bit-block">
               {p8.map((element, j) => (
+                <span key={j} className="bit-element">
+                  {element}
+                </span>
+              ))}
+            </div>
+          </div>
+          <br />
+          <div className="bit-number-display">
+          <h3>LCS Result : </h3>
+            <div className="bit-block">
+              {leftShiftResult.map((element, j) => (
                 <span key={j} className="bit-element">
                   {element}
                 </span>

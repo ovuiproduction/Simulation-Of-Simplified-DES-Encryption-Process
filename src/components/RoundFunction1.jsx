@@ -81,9 +81,10 @@ export default function RoundFunction1({
             inputText={inputText}
             ep={ep}
             onResultUpdate={handleEpConversion}
+            inputDes={"Result of IP"}
           />
           <h2>
-            Applying EP ⊕ Key 1
+          XOR the expanded half with subkey K1
             <button onClick={() => setStep(9)}>Apply XOR</button>
           </h2>
         </>
@@ -95,10 +96,12 @@ export default function RoundFunction1({
             inputText1={fk1_ep_result}
             inputText2={key1}
             onResultUpdate={handle_XOR_Result}
+            inputDes1={"EP Result"}
+            inputDes2={"Subkey-1"}
           />
           <h2>
-            Applying Sbox Substitution
-            <button onClick={() => setStep(10)}>Apply Sbox</button>
+          Apply the S-Boxes (S0 and S1) to the result
+            <button onClick={() => setStep(10)}>Apply S-Box</button>
           </h2>
         </>
       )}
@@ -110,10 +113,11 @@ export default function RoundFunction1({
             s0={s0}
             s1={s1}
             onResultUpdate={handleSboxResult}
+            inputDes={"EP Result ⊕ Subkey-1"}
           />
           <h2>
-            Applying P4 Conversion
-            <button onClick={() => setStep(11)}>Applying P4 Conversion</button>
+          Apply the P4 permutation to the output of the S-Boxes
+            <button onClick={() => setStep(11)}>Apply P4</button>
           </h2>
         </>
       )}
@@ -126,7 +130,7 @@ export default function RoundFunction1({
             onResultUpdate={handleP4Conversion}
           />
           <h2>
-            Applying P4 ⊕ Initial Nibble
+          XOR the P4 output with the left half (L)
             <button onClick={() => setStep(12)}>Apply XOR</button>
           </h2>
         </>
@@ -138,9 +142,11 @@ export default function RoundFunction1({
             inputText1={fk1_p4_result}
             inputText2={fk1_Initial_N1}
             onResultUpdate={handle_XOR_Result}
+            inputDes1={"P4 Result"}
+            inputDes2={"Initial Left Nibble"}
           />
           <h2>
-            Combining P4 and Initial Nibble
+            Combining P4 Result and Initial Nibble
             <button onClick={() => setStep(13)}>Apply Combine</button>
           </h2>
         </>

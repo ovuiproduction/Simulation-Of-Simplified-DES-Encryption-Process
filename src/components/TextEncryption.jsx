@@ -351,7 +351,7 @@ export default function TextEncryption() {
               </div>
             </div>
             <h2>
-              Applying P10 On 10 Bit Random key
+            Initial Key Permutation (P10)
               <button onClick={() => setStep(2)}>Apply P10</button>
             </h2>
 
@@ -369,7 +369,7 @@ export default function TextEncryption() {
 
             {step >= 6 && step <= 21 && (
               <h1>
-                Encrytion of PlainText
+                Encryption of PlainText
                 <button
                   className="plaintext-start-btn"
                   onClick={() => setStep(7)}
@@ -378,7 +378,7 @@ export default function TextEncryption() {
                 </button>
               </h1>
             )}
-
+           
             {step >= 7 && step <= 21 && (
               <>
                 <ConversionIP
@@ -387,13 +387,16 @@ export default function TextEncryption() {
                   onResultUpdate={handleIPConversion}
                 />
                 <h2>
-                  Applying Complex Function Round 1
-                  <button onClick={() => setStep(8)}>Apply Divide & EP</button>
+                  Applying fk 1
+                  <button onClick={() => setStep(8)}>Apply Split & EP</button>
                 </h2>
               </>
             )}
 
             {step >= 8 && step <= 21 && (
+              <>
+               <hr className="line-separation" />
+               <h1>First Round (Round 1) - Function fK with Subkey K1</h1>
               <RoundFunction1
                 s0={s0}
                 s1={s1}
@@ -404,29 +407,35 @@ export default function TextEncryption() {
                 initialStep={step}
                 onResultUpdate={handleRound1Result}
               />
+               </>
             )}
 
             {step >= 13 && step <= 21 && (
               <h2>
-                Applying Swap function
+               Swap the left and right halves
                 <button onClick={() => setStep(14)}>Apply Swap</button>
               </h2>
             )}
 
+         
             {step >= 14 && step <= 21 && (
               <>
                 <Swap
                   inputText={round1Result}
                   onResultUpdate={handleSwapResult}
                 />
+                
                 <h2>
-                  Applying Complex Function Round 2
-                  <button onClick={() => setStep(15)}>Apply Divide & EP</button>
+                Applying fk 2
+                  <button onClick={() => setStep(15)}>Apply Split & EP</button>
                 </h2>
               </>
             )}
 
             {step >= 15 && step <= 21 && (
+              <>
+               <hr className="line-separation" />
+              <h1>Second Round (Round 2) - Function fK with Subkey K2</h1>
               <RoundFunction2
                 s0={s0}
                 s1={s1}
@@ -437,12 +446,13 @@ export default function TextEncryption() {
                 initialStep={step}
                 onResultUpdate={handleRound2Result}
               />
+                </>
             )}
 
             {step >= 20 && step <= 21 && (
               <h2>
-                Applying IP Inverse
-                <button onClick={() => setStep(21)}>Apply IP Inverse</button>
+                Inverse Initial Permutation (IP⁻¹)
+                <button onClick={() => setStep(21)}>Apply IP-Inverse</button>
               </h2>
             )}
 

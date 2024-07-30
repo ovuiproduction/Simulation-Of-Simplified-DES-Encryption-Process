@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import "../css/simple-des-max.css";
 import "../css/simple-des-min.css";
 
-export default function SboxResult({ inputText, s0, s1, onResultUpdate }) {
+export default function SboxResult({ inputText, s0, s1, onResultUpdate,inputDes }) {
   const [newLeftNibble, setNewLeftNibble] = useState([]);
   const [newRightNibble, setNewRightNibble] = useState([]);
   const [detailedTextLeftNibble, setDetailedTextLeftNibble] = useState([]);
@@ -89,7 +89,7 @@ export default function SboxResult({ inputText, s0, s1, onResultUpdate }) {
   return (
     <div className="sbox-main-block">
       <div className="bit-number-display">
-        <h3>Key1 xor EP :</h3>
+        <h3>{inputDes} :</h3>
         <div className="bit-block">
           {inputText.map((element, j) => (
             <span key={j} className="bit-element">
@@ -168,7 +168,7 @@ export default function SboxResult({ inputText, s0, s1, onResultUpdate }) {
       </div>
 
       <div className="bit-number-display">
-        <h3>Combined Result: </h3>
+        <h3>S-Box Result: </h3>
         <div className="bit-block">
           {result.map((element, j) => (
             <span key={`result-${j}`} className="bit-element">

@@ -33,7 +33,7 @@ export default function Swap({ inputText, onResultUpdate }) {
             ))}
           </div>
         </div>
-
+<br />
         <div className="combine-block">
           <div className="bit-number-display">
             <h3>Left Nibble : </h3>

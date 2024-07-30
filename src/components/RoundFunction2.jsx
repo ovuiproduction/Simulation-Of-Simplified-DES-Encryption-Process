@@ -81,9 +81,10 @@ export default function RoundFunction2({
             inputText={inputText}
             ep={ep}
             onResultUpdate={handleEpConversion}
+            inputDes={"Result of Swap"}
           />
           <h2>
-            Applying EP ⊕ Key 2
+          XOR the expanded half with subkey K2
             <button onClick={() => setStep(16)}>Apply XOR</button>
           </h2>
         </>
@@ -95,10 +96,12 @@ export default function RoundFunction2({
             inputText1={fk2_ep_result}
             inputText2={key2}
             onResultUpdate={handle_XOR_Result}
+            inputDes1={"EP Result"}
+            inputDes2={"Subkey-2"}
           />
           <h2>
-            Applying Sbox Substitution
-            <button onClick={() => setStep(17)}>Apply Sbox</button>
+          Apply the S-Boxes (S0 and S1) to the result
+            <button onClick={() => setStep(17)}>Apply S-Box</button>
           </h2>
         </>
       )}
@@ -110,10 +113,11 @@ export default function RoundFunction2({
             s0={s0}
             s1={s1}
             onResultUpdate={handleSboxResult}
+            inputDes={"EP Result ⊕ Subkey-2"}
           />
           <h2>
-            Applying P4 Conversion
-            <button onClick={() => setStep(18)}>Applying P4 Conversion</button>
+          Apply the P4 permutation to the output of the S-Boxes
+            <button onClick={() => setStep(18)}>Apply P4</button>
           </h2>
         </>
       )}
@@ -126,7 +130,7 @@ export default function RoundFunction2({
             onResultUpdate={handleP4Conversion}
           />
           <h2>
-            Applying P4 ⊕ Initial Nibble
+          XOR the P4 output with the left half (L)
             <button onClick={() => setStep(19)}>Apply XOR</button>
           </h2>
         </>
@@ -138,6 +142,8 @@ export default function RoundFunction2({
             inputText1={fk2_p4_result}
             inputText2={fk2_Initial_N1}
             onResultUpdate={handle_XOR_Result}
+            inputDes1={"P4 Result"}
+            inputDes2={"Initial Left Nibble"}
           />
           <h2>
             Combining P4 and Initial Nibble

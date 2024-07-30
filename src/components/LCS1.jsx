@@ -16,7 +16,14 @@ export default function LCS1({ p10ConvertedKey, onResultUpdate }) {
   useEffect(() => {
     const left1 = leftNibble[0];
     const right1 = rightNibble[0];
-
+    const div1 = document.getElementById("array-generation-lcs1-1");
+    while (div1.firstChild) {
+      div1.removeChild(div1.firstChild);
+    }
+    const div2 = document.getElementById("array-generation-lcs1-2");
+    while (div2.firstChild) {
+      div2.removeChild(div2.firstChild);
+    }
     const updateLeftNibble = () => {
       leftNibble.forEach((_, i) => {
         setTimeout(() => {
@@ -86,7 +93,7 @@ export default function LCS1({ p10ConvertedKey, onResultUpdate }) {
     <>
       <div className="result-number-block">
         <div className="bit-number-display">
-          <h3>P10 Converted Key : </h3>
+          <h3>P10 Result : </h3>
           <div className="bit-block">
             {p10ConvertedKey.map((element, j) => (
               <span key={j} className="bit-element">
@@ -109,7 +116,7 @@ export default function LCS1({ p10ConvertedKey, onResultUpdate }) {
               </div>
             </div>
 
-            <div className="array-generation-block">
+            <div id="array-generation-lcs1-1" className="array-generation-block">
               {detailedTextLeftNibble.map((element, i) => (
                 <p className="generation-line" key={i}>
                   {element}
@@ -141,7 +148,7 @@ export default function LCS1({ p10ConvertedKey, onResultUpdate }) {
               </div>
             </div>
 
-            <div className="array-generation-block">
+            <div id="array-generation-lcs1-2" className="array-generation-block">
               {detailedTextRightNibble.map((element, i) => (
                 <p className="generation-line" key={i}>
                   {element}

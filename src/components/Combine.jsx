@@ -25,7 +25,7 @@ export default function Combine({ inputText1, inputText2, onResultUpdate }) {
         <div className="combine-block">
 
         <div className="bit-number-display-lcs1">
-        <h3>P4 ⊕ Initial Nibble Left : </h3>
+        <h3>P4 ⊕ Initial Left Nibble : </h3>
           <div className="bit-block">
             {inputText1.map((element, j) => (
               <span key={j} className="bit-element">
@@ -36,7 +36,7 @@ export default function Combine({ inputText1, inputText2, onResultUpdate }) {
         </div>
 
         <div className="bit-number-display-lcs1">
-        <h3>Initial Nibble Right :  </h3>
+        <h3>Initial Right Nibble :  </h3>
           <div className="bit-block">
             {inputText2.map((element, j) => (
               <span key={j} className="bit-element">
@@ -46,7 +46,7 @@ export default function Combine({ inputText1, inputText2, onResultUpdate }) {
           </div>
         </div>
         </div>
-
+            <br />
         <div className="bit-number-display">
         <h3>New (8 bit) Word  : {" "} </h3>
           <div className="bit-block">

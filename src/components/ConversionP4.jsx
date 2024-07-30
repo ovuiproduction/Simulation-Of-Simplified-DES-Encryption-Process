@@ -40,17 +40,6 @@ export default function ConversionP4({ inputText, p4, onResultUpdate }) {
     <>
       <div className="result-number-block">
         <div className="bit-number-display">
-          <h3>SBox Result :</h3>
-          <div className="bit-block">
-            {inputText.map((element, j) => (
-              <span key={j} className="bit-element">
-                {element}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        <div className="bit-number-display">
           <h3>P4 :</h3>
           <div className="bit-block">
             {p4.map((element, j) => (
@@ -60,7 +49,17 @@ export default function ConversionP4({ inputText, p4, onResultUpdate }) {
             ))}
           </div>
         </div>
-
+        <br />
+        <div className="bit-number-display">
+          <h3>S-Box Result :</h3>
+          <div className="bit-block">
+            {inputText.map((element, j) => (
+              <span key={j} className="bit-element">
+                {element}
+              </span>
+            ))}
+          </div>
+        </div>
         <div className="array-generation-block">
           {detailedText.map((text, i) => (
             <p className="generation-line" key={i}>
@@ -70,7 +69,7 @@ export default function ConversionP4({ inputText, p4, onResultUpdate }) {
         </div>
 
         <div className="bit-number-display">
-        <h3>Updated Text :{" "} </h3>
+        <h3>P4 Result :{" "} </h3>
           <div className="bit-block">
             {result.map((char, i) => (
               <span key={i} className="bit-element">

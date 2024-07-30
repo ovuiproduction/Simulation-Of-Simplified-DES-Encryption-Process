@@ -12,6 +12,10 @@ export default function ConversionIPInverse({
   const [detailedText, setDetailedText] = useState([]);
 
   useEffect(() => {
+    const div = document.getElementById("array-generation-IP-Inverse");
+    while (div.firstChild) {
+      div.removeChild(div.firstChild);
+    }
     ipInverse.forEach((index, i) => {
       setTimeout(() => {
         setResult((prev) => {
@@ -22,7 +26,7 @@ export default function ConversionIPInverse({
         setDetailedText((prev) => {
           const newText = [
             ...prev,
-            `updatedPT[${i}] = Word[IP Inverse[${i}]-1] = PT[${index - 1}] = ${
+            `updatedWord[${i}] = Word[IP Inverse[${i}]-1] = Word[${index - 1}] = ${
               inputText[index - 1]
             }`,
           ];
@@ -53,8 +57,19 @@ export default function ConversionIPInverse({
             ))}
           </div>
         </div>
+        <br />
+        <div className="bit-number-display">
+          <h3>Round 2 Result : </h3>
+          <div className="bit-block">
+            {inputText.map((element, j) => (
+              <span key={j} className="bit-element">
+                {element}
+              </span>
+            ))}
+          </div>
+        </div>
 
-        <div className="array-generation-block">
+        <div id="array-generation-IP-Inverse" className="array-generation-block">
           {detailedText.map((text, i) => (
             <p className="generation-line" key={i}>
               {text}

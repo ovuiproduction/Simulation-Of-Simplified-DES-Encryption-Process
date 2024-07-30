@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import "../css/simple-des-max.css";
 import "../css/simple-des-min.css";
 
-export default function DivideAndEP({ inputText, ep, onResultUpdate }) {
+export default function DivideAndEP({ inputText, ep, onResultUpdate ,inputDes}) {
   const [epRightNibble, setEPRightNibble] = useState([]);
   const [detailedTextRightNibble, setDetailedTextRightNibble] = useState([]);
 
@@ -21,7 +21,7 @@ export default function DivideAndEP({ inputText, ep, onResultUpdate }) {
         setDetailedTextRightNibble((prev) => {
           const newText = [
             ...prev,
-            `updatedPT[${i}] = PT[EP[${i}]-1] = PT[${index - 1}] = ${
+            `updatedPT[${i}] = ${inputDes}[EP[${i}]-1] = ${inputDes}[${index - 1}] = ${
               rightNibble[index - 1]
             }`,
           ];
@@ -43,7 +43,7 @@ export default function DivideAndEP({ inputText, ep, onResultUpdate }) {
     <>
       <div className="result-number-block">
         <div className="bit-number-display">
-          <h3>Initial Permuted Text :</h3>
+          <h3>{inputDes} : </h3>
           <div className="bit-block">
             {inputText.map((element, j) => (
               <span key={j} className="bit-element">
@@ -52,7 +52,7 @@ export default function DivideAndEP({ inputText, ep, onResultUpdate }) {
             ))}
           </div>
         </div>
-
+            <br />
         <div className="bit-number-display">
           <h3>EP :</h3>
           <div className="bit-block">

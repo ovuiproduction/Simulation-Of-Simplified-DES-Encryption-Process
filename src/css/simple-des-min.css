@@ -314,6 +314,7 @@ h1,p{
     margin: 2px;
     text-align: center;
   }
-  
-
+  .generation-line-small{
+    font-size:12px;
+  }
 }

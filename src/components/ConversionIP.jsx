@@ -8,6 +8,10 @@ export default function ConversionIP({ inputText, ip, onResultUpdate }) {
   const [detailedText, setDetailedText] = useState([]);
 
   useEffect(() => {
+    const div = document.getElementById("array-generation-IP");
+    while (div.firstChild) {
+      div.removeChild(div.firstChild);
+    }
     ip.forEach((index, i) => {
       setTimeout(() => {
         setResult((prev) => {
@@ -49,8 +53,19 @@ export default function ConversionIP({ inputText, ip, onResultUpdate }) {
             ))}
           </div>
         </div>
+        <br />
+        <div className="bit-number-display">
+        <h3>PlainText : </h3>
+          <div className="bit-block">
+            {inputText.map((element, j) => (
+              <span key={j} className="bit-element">
+                {element}
+              </span>
+            ))}
+          </div>
+        </div>
 
-      <div className="array-generation-block">
+      <div id="array-generation-IP" className="array-generation-block">
         {detailedText.map((text, i) => (
           <p className="generation-line" key={i}>
             {text}
@@ -59,7 +74,7 @@ export default function ConversionIP({ inputText, ip, onResultUpdate }) {
         </div>
 
         <div className="bit-number-display">
-        <h3>Updated PlainText :{" "} </h3>
+        <h3>Result of IP :{" "} </h3>
           <div className="bit-block">
             {result.map((char, i) => (
               <span key={i} className="bit-element">

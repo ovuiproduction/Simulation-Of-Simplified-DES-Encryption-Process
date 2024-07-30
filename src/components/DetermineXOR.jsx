@@ -7,6 +7,8 @@ export default function DetermineXOR({
   inputText1,
   inputText2,
   onResultUpdate,
+  inputDes1,
+  inputDes2
 }) {
   const [result, setResult] = useState([]);
   const [detailedText, setDetailedText] = useState([]);
@@ -22,7 +24,7 @@ export default function DetermineXOR({
         setDetailedText((prev) => {
           const newText = [
             ...prev,
-            `Result[${i}] = Block1[${i}] ^ Block2[${i}] = ${inputText1[i]} ^ ${
+            `Result[${i}] = ${inputDes1}[${i}] ^ ${inputDes2}[${i}] = ${inputText1[i]} ^ ${
               inputText2[i]
             } = ${inputText1[i] ^ inputText2[i]}`,
           ];
@@ -47,7 +49,7 @@ export default function DetermineXOR({
     <>
       <div className="result-number-block">
         <div className="bit-number-display">
-          <h3>Block1 : </h3>
+          <h3>{inputDes1} : </h3>
           <div className="bit-block">
             {inputText1.map((element, j) => (
               <span key={j} className="bit-element">
@@ -56,9 +58,9 @@ export default function DetermineXOR({
             ))}
           </div>
         </div>
-
+<br />
         <div className="bit-number-display">
-          <h3>Block2 : </h3>
+          <h3>{inputDes2} : </h3>
           <div className="bit-block">
             {inputText2.map((element, j) => (
               <span key={j} className="bit-element">
@@ -70,14 +72,14 @@ export default function DetermineXOR({
 
         <div className="array-generation-block">
           {detailedText.map((text, i) => (
-            <p className="generation-line" key={i}>
+            <p className="generation-line generation-line-small" key={i}>
               {text}
             </p>
           ))}
         </div>
 
         <div className="bit-number-display">
-          <h3>Block1 ⊕ Block2 : </h3>
+          <h3>{inputDes1} ⊕ {inputDes2} : </h3>
           <div className="bit-block">
             {result.map((char, i) => (
               <span key={i} className="bit-element">

@@ -8,6 +8,10 @@ export default function ConversionP10({ randomKey, p10, onResultUpdate }) {
   const [detailedText, setDetailedText] = useState([]);
   
   useEffect(() => {
+    const div = document.getElementById("array-generation-P10");
+    while (div.firstChild) {
+      div.removeChild(div.firstChild);
+    }
     p10.forEach((index, i) => {
       setTimeout(() => {
         setNewKey((prev) => {
@@ -49,7 +53,18 @@ export default function ConversionP10({ randomKey, p10, onResultUpdate }) {
             ))}
           </div>
         </div>
-        <div className="array-generation-block">
+        <br />
+        <div className="bit-number-display">
+          <h3>Random Key : </h3>
+          <div className="bit-block">
+            {randomKey.map((element, j) => (
+              <span key={j} className="bit-element">
+                {element}
+              </span>
+            ))}
+          </div>
+        </div>
+        <div id="array-generation-P10" className="array-generation-block">
         {detailedText.map((text, i) => (
           <p className="generation-line" key={i}>
             {text}
@@ -57,7 +72,7 @@ export default function ConversionP10({ randomKey, p10, onResultUpdate }) {
         ))}
         </div>
         <div className="bit-number-display">
-        <h3>Updated Text : </h3>
+        <h3>P10 Result : </h3>
         <div className="bit-block">
           {newKey.map((char, i) => (
             <span key={i} className="bit-element">

@@ -14,6 +14,14 @@ export default function LCS2({ leftShiftResult, onResultUpdate }) {
   const rightNibble = leftShiftResult.slice(leftShiftResult.length / 2);
 
   useEffect(() => {
+    const div1 = document.getElementById("array-generation-lcs2-1");
+    while (div1.firstChild) {
+      div1.removeChild(div1.firstChild);
+    }
+    const div2 = document.getElementById("array-generation-lcs2-2");
+    while (div2.firstChild) {
+      div2.removeChild(div2.firstChild);
+    }
     const updateLeftNibble = () => {
       leftNibble.forEach((_, i) => {
         setTimeout(() => {
@@ -85,7 +93,7 @@ export default function LCS2({ leftShiftResult, onResultUpdate }) {
     <>
       <div className="result-number-block">
         <div className="bit-number-display">
-          <h3>LCS1 Result : </h3>
+          <h3>LCS-1 Result : </h3>
           <div className="bit-block">
             {leftShiftResult.map((element, j) => (
               <span key={j} className="bit-element">
@@ -108,7 +116,7 @@ export default function LCS2({ leftShiftResult, onResultUpdate }) {
               </div>
             </div>
 
-            <div className="array-generation-block">
+            <div id="array-generation-lcs2-1" className="array-generation-block">
               {detailedTextLeftNibble.map((element, i) => (
                 <p className="generation-line" key={i}>
                   {element}
@@ -140,7 +148,7 @@ export default function LCS2({ leftShiftResult, onResultUpdate }) {
               </div>
             </div>
 
-            <div className="array-generation-block">
+            <div id="array-generation-lcs2-2" className="array-generation-block">
               {detailedTextRightNibble.map((element, i) => (
                 <p className="generation-line" key={i}>
                   {element}
