@@ -58,7 +58,7 @@ export default function DetermineXOR({
             ))}
           </div>
         </div>
-<br />
+        <br />
         <div className="bit-number-display">
           <h3>{inputDes2} : </h3>
           <div className="bit-block">
