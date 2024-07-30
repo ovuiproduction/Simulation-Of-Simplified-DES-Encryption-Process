@@ -221,7 +221,7 @@ export default function TextEncryption() {
               />
             </div>
           </div>
-
+          <hr className="input-line-separation" />
           <div className="input-block">
             <h2>Key</h2>
             <div className="input-sub-block">
@@ -235,7 +235,7 @@ export default function TextEncryption() {
               />
             </div>
           </div>
-
+          <hr className="input-line-separation" />
           <div className="input-block">
             <h2>P10</h2>
             <p className="instruction-text">
@@ -245,7 +245,7 @@ export default function TextEncryption() {
               <TwoDigitInput value={p10} onChange={setP10} numInputs={10} />
             </div>
           </div>
-
+          <hr className="input-line-separation" />
           <div className="input-block">
             <h2>P8</h2>
             <p className="instruction-text">
@@ -255,7 +255,7 @@ export default function TextEncryption() {
               <TwoDigitInput value={p8} onChange={setP8} numInputs={8} />
             </div>
           </div>
-
+          <hr className="input-line-separation" />
           <div className="input-block">
             <h2>P4</h2>
             <div className="input-sub-block">
@@ -269,7 +269,7 @@ export default function TextEncryption() {
               />
             </div>
           </div>
-
+          <hr className="input-line-separation" />
           <div className="input-block">
             <h2>E/P</h2>
             <div className="input-sub-block">
@@ -283,7 +283,7 @@ export default function TextEncryption() {
               />
             </div>
           </div>
-
+          <hr className="input-line-separation" />
           <div className="input-block">
             <h2>IP</h2>
             <div className="input-sub-block">
@@ -297,7 +297,7 @@ export default function TextEncryption() {
               />
             </div>
           </div>
-
+          <hr className="input-line-separation" />
           <div className="input-block">
             <h2>
               IP<sup className="inverse">-1</sup>
@@ -313,6 +313,7 @@ export default function TextEncryption() {
               />
             </div>
           </div>
+          <hr className="input-line-separation" />
         </div>
         <div className="matrix-input-block">
           <div className="matrix-block">
