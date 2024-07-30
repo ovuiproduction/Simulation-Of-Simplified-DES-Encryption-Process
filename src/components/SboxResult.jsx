@@ -27,8 +27,8 @@ export default function SboxResult({ inputText, s0, s1, onResultUpdate,inputDes 
         `Col Value = leftNibble[1] leftNibble[2]`,
         `Col Value = ${leftNibble[1]} ${leftNibble[2]}`,
         `Col Value (decimal) = ${col}`,
-        `S0 Matrix Value = s0[Row,Col]`,
-        `S0 Matrix value = s0[${row},${col}]`,
+        `S0 Matrix Value = S0[Row,Col]`,
+        `S0 Matrix value = S0[${row},${col}]`,
         `S0 Matrix value = ${s0Value}`,
         `S0 Matrix value Bit: ${s0Bits.join("")}`,
       ];
@@ -56,8 +56,8 @@ export default function SboxResult({ inputText, s0, s1, onResultUpdate,inputDes 
         `Col Value = rightNibble[1] rightNibble[2]`,
         `Col Value = ${rightNibble[1]} ${rightNibble[2]}`,
         `Col Value (decimal) = ${col}`,
-        `S1 Matrix Value = s1[Row,Col]`,
-        `S1 Matrix value = s1[${row},${col}]`,
+        `S1 Matrix Value = S1[Row,Col]`,
+        `S1 Matrix value = S1[${row},${col}]`,
         `S1 Matrix value = ${s1Value}`,
         `S1 Matrix value Bit: ${s1Bits.join("")}`,
       ];
