@@ -18,7 +18,7 @@ export default function ConversionP4({ inputText, p4, onResultUpdate }) {
         setDetailedText((prev) => {
           const newText = [
             ...prev,
-            `updatedPT[${i}] = sBoxResult[P4[${i}]-1] = sBoxResult[${
+            `updatedPT[${i}] = SBoxResult[P4[${i}]-1] = SBoxResult[${
               index - 1
             }] = ${inputText[index - 1]}`,
           ];
